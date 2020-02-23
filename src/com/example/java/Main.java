@@ -25,5 +25,40 @@ public class Main {
 
 
         System.out.println(b.toString());
+
+        // ____________________________________________________
+        // Compare Strings in Java
+        String s1 = "Hello";
+        String s2 = "Hello";
+
+//       Remember that strings are objects, not primitives. So the variables are references to those objects.
+//       They refer to an object in memory. When you assign a string like this using a literal,
+//       the runtime looks up that value in a table it maintains in memory.
+//       If it finds an existing object that represents that same string value, it assigns the new variable as a reference to that object.
+//       And so it saves an object. If it's a value that isn't already stored somewhere, then a new object is created.
+        if(s1 == s2){
+            System.out.println("They match");
+        }else{
+            System.out.println("They don't match");
+        }
+
+        String s3 = new String("Hello");
+        String s4 = new String("HELLO");
+//        When you use the standard object creation syntax though, as I'm doing in the second example,
+//        you're forcing the creation of a new reference variable.
+//        Even though the two values match, the two variables aren't pointing to the same object.
+
+        if(s3 == s4){
+            System.out.println("They match");
+        }else{
+            System.out.println("They don't match");
+        }
+//        The correct way of comparing Strings in Java is using the equals method
+//        The two values match. You may have noticed, that there's also a method that allows you to do a case insensitive comparison.
+        if(s3.equalsIgnoreCase(s4)){
+            System.out.println("They match");
+        }else{
+            System.out.println("They don't match");
+        }
     }
 }
