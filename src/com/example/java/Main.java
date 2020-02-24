@@ -13,13 +13,13 @@ public class Main {
 //        String result = sb.toString();
 //        System.out.println(result);
         StringBuilder b = new StringBuilder();
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner1 = new Scanner(System.in);
 
         System.out.print("Enter Value 1: ");
-        String input1 = scanner.nextLine();
+        String input1 = scanner1.nextLine();
 
         System.out.print("Enter Value 2: ");
-        String input2 = scanner.nextLine();
+        String input2 = scanner1.nextLine();
 
         b.append(input1)
                 .append(", ")
@@ -103,5 +103,22 @@ public class Main {
 
         DecimalFormat df2 = new DecimalFormat("$#0.00##");
         System.out.println(df2.format(5.754));
+
+        // ============================================================
+        // Simple Counter
+       
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter value 1: ");
+        String input11 = scanner.nextLine();
+        int i = Integer.parseInt(input11);
+
+        System.out.println("Enter value 2: ");
+        String input22 = scanner.nextLine();
+        int i2 = Integer.parseInt(input22);
+
+        int result = i + i2;
+        System.out.println(result);
+
     }
 }
