@@ -1,5 +1,7 @@
 package com.example.java;
-
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -60,5 +62,46 @@ public class Main {
         }else{
             System.out.println("They don't match");
         }
+
+// ________________________________________________________________________________________________________
+// FORMAT NUMERIC VALUES AS A STRING 
+        double doubleValue = 1_234_567.89;
+
+//     Get a number with commas separating the digits before the period,
+//     and a period representing the decimal value.
+        NumberFormat numberFormat = NumberFormat.getNumberInstance();
+        System.out.println(numberFormat.format(doubleValue));
+
+//      With the number instance of the formatter, I get the entire value. But with the integer formatter instance,
+//      the fractional value is lost. And notice that it's rounding up.
+        NumberFormat intFormat = NumberFormat.getIntegerInstance();
+        System.out.println(intFormat.format(doubleValue));
+
+//      To get rid of those separator characters
+        numberFormat.setGroupingUsed(false);
+        System.out.println(numberFormat.format(doubleValue));
+
+//      The use of commas and periods is different in different countries.
+//      And you can control this using something called a locale object.
+//      A locale represents a particular language in a particular country.
+//      There are a few different versions of this, I'm going to use the version that takes two arguments.
+//      For a language and a country. These are both strings. The first string is in lowercase. I'll type in de for German,
+//      and then for the country, I'll put in DE all uppercase, and that's for Germany.
+        Locale locale = new Locale("de", "DE");
+        NumberFormat localFormat = NumberFormat.getNumberInstance(locale);
+        System.out.println(localFormat.format(doubleValue));
+
+//      Get reference with NumberFormat.getCurrencyinstance.
+//      I'll make a copy of that bit of code and use the currency format object and in my locale,
+//      in the United States where I am, I get the dollar sign at the beginning,
+//      commas for the separators, and the dot for the decimal
+        NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
+        System.out.println(currencyFormat.format(doubleValue));
+
+        DecimalFormat df = new DecimalFormat("$000.00");
+        System.out.println(df.format(1));
+
+        DecimalFormat df2 = new DecimalFormat("$#0.00##");
+        System.out.println(df2.format(5.754));
     }
 }
