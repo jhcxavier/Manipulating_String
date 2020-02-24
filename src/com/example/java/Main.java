@@ -120,5 +120,17 @@ public class Main {
         int result = i + i2;
         System.out.println(result);
 
+        // ============================================================
+        // Starting Conditional
+
+        int monthNumber = 6;
+
+        if (monthNumber >= 0 && monthNumber <= 2){
+            System.out.println("It's the first Quarter");
+        } else if (monthNumber >= 3 && monthNumber <= 5) {
+            System.out.println("It's the second Quarter");
+        } else {
+            System.out.println("You are in the second half of the year");
+        }
     }
 }
